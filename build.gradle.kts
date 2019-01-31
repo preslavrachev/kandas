@@ -24,11 +24,15 @@ apply {
 val kotlin_version: String by extra
 
 repositories {
+    jcenter()
+    maven { setUrl("http://dl.bintray.com/kyonifer/maven") }
     mavenCentral()
 }
 
 dependencies {
     compile(kotlinModule("stdlib-jdk8", kotlin_version))
+    compile(kotlinModule("reflect", kotlin_version))
+    compile("com.kyonifer:koma-core-ejml:0.12")
     testCompile("org.junit.jupiter:junit-jupiter-api:5.3.0")
     testCompile("com.willowtreeapps.assertk:assertk-jvm:0.13")
 }

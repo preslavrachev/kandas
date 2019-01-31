@@ -27,4 +27,22 @@ internal class DataFrameUTest {
                 .isNotNull()
                 .containsOnly("a", "b", "c", "d")
     }
+
+    @Test
+    fun `ensure that a single series contains the right items`() {
+        val df = DataFrame(listOf(
+                mapOf(
+                        "a" to 1,
+                        "b" to 2
+                ),
+                mapOf(
+                        "c" to 3,
+                        "d" to 4
+                )
+        ))
+
+        assertThat(df["a"].toList())
+                .isNotNull()
+                .containsOnly(1, null)
+    }
 }
