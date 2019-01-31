@@ -1,0 +1,3 @@
+rootProject.name = 'kandas'
+rootProject.buildFileName = 'build.gradle.kts'
+
