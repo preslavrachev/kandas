@@ -1,5 +1,6 @@
 package com.preslavrachev.kandas
 
+import com.preslavrachev.kandas.filter.gt
 import koma.extensions.get
 import koma.ndarray.NDArray
 
@@ -41,7 +42,11 @@ class ListInput(val data: List<Map<String, Int?>>) : InputData() {
 }
 //data class Map(val data: kotlin.collections.Map<String, Any>): InputData()
 
-class Series<T>(val data: NDArray<T>) : NDArray<T> by data {
+
+
+
+
+class Series<T: Comparable<T>>(val data: NDArray<T>) : NDArray<T> by data {
     override fun toString(): String {
         val rowIdx = 0 until data.shape()[0]
         val colIdx = 0 until data.shape()[1]
@@ -60,6 +65,10 @@ class Series<T>(val data: NDArray<T>) : NDArray<T> by data {
         }
 
         return buider.toString()
+    }
+
+    infix fun gt(t: T): Series<Boolean> {
+        return Series(data gt t)
     }
 }
 

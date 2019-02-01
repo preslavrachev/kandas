@@ -1,5 +1,6 @@
 package com.preslavrachev.kandas
 
+
 fun main(args: Array<String>) {
     val df = DataFrame(listOf(
             mapOf(
@@ -12,5 +13,8 @@ fun main(args: Array<String>) {
             )
     ))
 
-    print(df.columns)
+    print(df["a"] gt 2)
 }
+
+
+
