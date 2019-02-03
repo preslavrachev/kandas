@@ -1,11 +1,8 @@
 package com.preslavrachev.kandas
 
 import assertk.assertThat
-import assertk.assertions.contains
-import assertk.assertions.containsAll
 import assertk.assertions.containsOnly
 import assertk.assertions.isNotNull
-import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 
 internal class DataFrameUTest {
@@ -23,7 +20,7 @@ internal class DataFrameUTest {
                 )
         ))
 
-        assertThat(df.columns)
+        assertThat(df.columnNames)
                 .isNotNull()
                 .containsOnly("a", "b", "c", "d")
     }
@@ -41,8 +38,10 @@ internal class DataFrameUTest {
                 )
         ))
 
+        print(df["a"].toList())
+
         assertThat(df["a"].toList())
                 .isNotNull()
-                .containsOnly(1, null)
+                .containsOnly(1.0, Double.NaN)
     }
 }

@@ -12,5 +12,5 @@ fun main(args: Array<String>) {
             )
     ))
 
-    print(df.columns)
+    print(df.columnNames)
 }
