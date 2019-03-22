@@ -13,12 +13,14 @@ buildscript {
     
     dependencies {
         classpath(kotlinModule("gradle-plugin", kotlin_version))
+        classpath("com.karumi.kotlinsnapshot:plugin:2.0.0")
     }
     
 }
 
 apply {
     plugin("kotlin")
+    plugin("com.karumi.kotlin-snapshot")
 }
 
 val kotlin_version: String by extra
